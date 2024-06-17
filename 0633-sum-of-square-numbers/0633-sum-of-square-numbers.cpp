@@ -3,18 +3,16 @@ using namespace std;
 class Solution {
 public:
     bool judgeSquareSum(int c) {
-    for (long a = 0; a * a <= c; a++) {
-        int b = c - a * a;
-        int l = 0, r = b;
-        while (l <= r) {
-            long m = l + (r - l) / 2;
-            if (m * m == b) {
-                return true;
-            } else if (m * m < b) {
-                l = m + 1;
-            } else {
-                r = m - 1;
-            }
+    long left = 0;
+    long right = sqrt(c);
+    while (left <= right) {
+        long sum = left * left + right * right;
+        if (sum == c) {
+            return true;
+        } else if (sum < c) {
+            left++;
+        } else {
+            right--;
         }
     }
     return false;
