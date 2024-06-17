@@ -1,18 +1,19 @@
-#include <iostream>
+ #include <iostream>
+#include <cmath>
 using namespace std;
 class Solution {
 public:
     bool judgeSquareSum(int c) {
-    long left = 0;
-    long right = sqrt(c);
-    while (left <= right) {
-        long sum = left * left + right * right;
-        if (sum == c) {
+    long l = 0;
+    long r = sqrt(c);
+    while (l <= r) {
+        long s = l * l + r * r;
+        if (s == c) {
             return true;
-        } else if (sum < c) {
-            left++;
+        } else if (s < c) {
+            l++;
         } else {
-            right--;
+            r--;
         }
     }
     return false;
